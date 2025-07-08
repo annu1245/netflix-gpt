@@ -15,6 +15,18 @@
 - Create Redux store with userSlice
 - Implement Signout
 - Update profile
+- BugFix: SignUp user display name and profile picture updated
+- BugFix: If the user is not logged in redict /browse to login and vise versa
+- unsubscribed to the onAuthStateChange callback
+- Add hardcoded values to the constants file
+- Register TMDB API & create an app and get an token
+- Get data from TMDB now playing movies list API
+- Custom hook for now playing movies
+- Create movieSlice
+- Update store with movies data
+- Fetch data for trailer video
+- Update store with trailer video data
+- Embeded the youtube video make it autoplay and mute
 
 # features
 - Login / signup

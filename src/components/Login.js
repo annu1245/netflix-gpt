@@ -3,15 +3,14 @@ import Header from "./Header";
 import validate from "../utils/validate";
 import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { NETFLIX_BG, USER_AVTAR } from "../utils/constants";
 
 const Login = () => {
     const [isSignInForm, setSignInForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState();
 
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const name = useRef(null);
@@ -35,12 +34,11 @@ const Login = () => {
                     const user = userCredential.user;
                     updateProfile(user, {
                         displayName: name.current.value,
-                        photoURL: "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
+                        photoURL: USER_AVTAR
                     })
                         .then(() => {
                             const {uid, email, displayName, photoURL} = auth.currentUser;
                             dispatch(addUser({uid, email, displayName, photoURL}))
-                            navigate("/browse");
                         })
                         .catch((error) => {
                             setErrorMessage(error.message);
@@ -57,7 +55,6 @@ const Login = () => {
                     // Signed in
                     const user = userCredential.user;
                     console.log(user);
-                    navigate("/browse");
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -70,7 +67,7 @@ const Login = () => {
         <div>
             <Header />
             <div className="absolute">
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/75b0ed49-75ab-4a63-bd45-37bc2c95cb73/web/IN-en-20250623-TRIFECTA-perspective_ae5833b7-6ce5-4e88-853e-014f38c506f1_large.jpg" alt="bg-img" />
+                <img src={NETFLIX_BG} alt="bg-img" />
             </div>
             <form className="absolute bg-black w-3/12 my-20 py-10 px-10 mx-auto right-0 left-0 text-white rounded bg-opacity-80">
                 <h1 className="text-2xl font-bold py-4">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
