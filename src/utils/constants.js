@@ -11,3 +11,5 @@ export const API_OPTIONS = {method: 'GET',
     Authorization: `Bearer ${token}`
   }
 };
+
+export const TMDB_IMAGE_PATH = "https://image.tmdb.org/t/p/w200/"
