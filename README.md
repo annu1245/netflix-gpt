@@ -27,6 +27,15 @@
 - Fetch data for trailer video
 - Update store with trailer video data
 - Embeded the youtube video make it autoplay and mute
+- Build Secondary Container
+- MovieList
+- MovieCard
+- Added TMDB image cdn url
+- Created usePopularMovies and useTopRatedMovies custom hook
+- Added new page watch/:id to show each video
+- Made a getVideoKey function to get the video key of youtube
+- Display the recommened video section
+- Seperated the route in router folder
 
 # features
 - Login / signup

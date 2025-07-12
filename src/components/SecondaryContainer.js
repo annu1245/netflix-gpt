@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
-import usePopularMovies from "../hooks/usePopularMovies";
+import { movieCategories } from "../utils/constants";
 
 const SecondaryContainer = () => {
     const movies = useSelector((store) => store.movies);
@@ -10,9 +10,9 @@ const SecondaryContainer = () => {
     return (
         <div className="bg-black">
             <div className="-mt-56 relative">
-                <MovieList title="Now Playing Movies" movies={movies.nowPlayingMovies} />
-                <MovieList title="Popular Movies" movies={movies.popularMovies} />
-                <MovieList title="Top Rated Movies" movies={movies.topRatedMovies} />
+                {
+                    movieCategories.map(category =>  <MovieList title={category.categoryTitle} key={category.reduxTitle} movies={movies.nowPlayingMovies} categoryName={category.reduxTitle}/>)
+                }
             </div>
         </div>
     );

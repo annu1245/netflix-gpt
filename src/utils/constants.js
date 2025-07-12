@@ -12,4 +12,11 @@ export const API_OPTIONS = {method: 'GET',
   }
 };
 
-export const TMDB_IMAGE_PATH = "https://image.tmdb.org/t/p/w200/"
+export const TMDB_IMAGE_PATH = "https://image.tmdb.org/t/p/w200/";
+
+
+export const movieCategories = [
+  {categoryTitle: "Now Playing Movies", reduxTitle: "nowPlayingMovies"},
+  {categoryTitle: "Popular Movies", reduxTitle: "popularMovies"},
+  {categoryTitle: "Top Rated Movies", reduxTitle: "topRatedMovies"}
+]

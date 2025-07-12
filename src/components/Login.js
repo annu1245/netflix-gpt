@@ -6,12 +6,14 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { NETFLIX_BG, USER_AVTAR } from "../utils/constants";
+import { useNavigate } from "react-router";
 
 const Login = () => {
     const [isSignInForm, setSignInForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState();
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const name = useRef(null);
     const email = useRef(null);
@@ -39,6 +41,7 @@ const Login = () => {
                         .then(() => {
                             const {uid, email, displayName, photoURL} = auth.currentUser;
                             dispatch(addUser({uid, email, displayName, photoURL}))
+                            navigate('/browse')
                         })
                         .catch((error) => {
                             setErrorMessage(error.message);
@@ -55,6 +58,7 @@ const Login = () => {
                     // Signed in
                     const user = userCredential.user;
                     console.log(user);
+                    navigate('/browse')
                 })
                 .catch((error) => {
                     const errorCode = error.code;
