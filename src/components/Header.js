@@ -21,8 +21,9 @@ const Header = () => {
             <img src={LOGO} alt="logo" width="200px" />
             {user && (
                 <div className="flex gap-3">
-                    <p className="font-bold text-black text-2xl">{user.displayName}</p>
-                    <img src={user?.photoURL} alt="user-icon" width="40px" className="rounded-lg" />
+                    <button className="bg-purple-500 text-white px-4 py-2 mx-2 rounded-lg">GPT Search</button>
+                    <p className="font-bold text-black text-2xl bg-white bg-opacity-20 px-4 py-2 rounded-lg mx-2">{user.displayName}</p>
+                    <img src={user?.photoURL} alt="user-icon" width="45px" className="rounded-lg" />
                     <button onClick={handleSignOut} className="font-bold text-white bg-red-600 py-2 px-4 rounded-lg">
                         Sign Out
                     </button>

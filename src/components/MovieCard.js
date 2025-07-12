@@ -2,7 +2,7 @@ import { TMDB_IMAGE_PATH } from '../utils/constants';
 
 const MovieCard = ({posterPath, onClick}) => {
   return (
-    <div className='w-36' onClick={onClick}>
+    <div className='w-36 cursor-pointer' onClick={onClick}>
       <img src={TMDB_IMAGE_PATH + posterPath}/>
     </div>
   )
