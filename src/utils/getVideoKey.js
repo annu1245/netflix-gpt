@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "./constants";
-import { addWatchNowMovie } from "./moviesSlice";
+import { addWatchNowMovie } from '../store/moviesSlice';
 
 const getVideoKey = (movieId) => {
   // const dispatch = useDispatch();

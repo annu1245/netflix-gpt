@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { addWatchNowMovie } from "../utils/moviesSlice";
+import { addWatchNowMovie } from "../store/moviesSlice";
 
 const useMovieVideo = (movieId, shouldFetch) => {
 

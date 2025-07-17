@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { movieCategories } from "../utils/constants";
-import { TMDB_IMAGE_PATH } from "../utils/constants";
 import WatchNextMovieCard from "./WatchNextMovieCard";
 import getVideoKey from "../utils/getVideoKey";
 import { useNavigate } from "react-router";

@@ -4,7 +4,7 @@ import validate from "../utils/validate";
 import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../store/userSlice";
 import { NETFLIX_BG, USER_AVTAR } from "../utils/constants";
 import { useNavigate } from "react-router";
 

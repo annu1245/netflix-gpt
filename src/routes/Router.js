@@ -5,6 +5,8 @@ import ProtectedRoute from './ProtectedRoute';
 import MainContainer from '../components/MainContainer';
 import SecondaryContainer from '../components/SecondaryContainer';
 import PlayVideo from '../components/PlayVideo';
+import BrowserRoute from "./BrowserRoute";
+
 
 
 const router = createBrowserRouter([
@@ -18,12 +20,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "browse",
-                element: (
-                    <>
-                        <MainContainer />
-                        <SecondaryContainer />
-                    </>
-                ),
+                element:<BrowserRoute/>
             },
             {
                 path: "watch",

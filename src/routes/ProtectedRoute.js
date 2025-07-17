@@ -5,7 +5,7 @@ import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import { auth } from "../utils/firebase";
-import { removeUser, addUser } from "../utils/userSlice";
+import { removeUser, addUser } from "../store/userSlice";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 

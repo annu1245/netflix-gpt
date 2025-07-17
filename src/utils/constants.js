@@ -20,3 +20,9 @@ export const movieCategories = [
   {categoryTitle: "Popular Movies", reduxTitle: "popularMovies"},
   {categoryTitle: "Top Rated Movies", reduxTitle: "topRatedMovies"}
 ]
+
+export const searchLanguages = [
+  {identifier: "en", name: "English"},
+  {identifier: "hindi", name: "Hindi"},
+  {identifier: "spanish", name: "Spanish"},
+]
