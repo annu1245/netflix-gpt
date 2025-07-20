@@ -9,7 +9,7 @@ import { removeUser, addUser } from "../store/userSlice";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 
-const ProtectedRoute = () => {
+const ProtectedRoute = ({ auth: authProp }) => {
     const dispatch = useDispatch();
     const [ authenticated, setAuthenticated ] = useState(false);
     const [ isLoading, setIsLoading ] = useState(true);
@@ -25,10 +25,8 @@ const ProtectedRoute = () => {
                 dispatch(addUser({ uid, email, displayName, photoURL }));
                 setIsLoading(false);
                 setAuthenticated(true);
-                //navigate('/browse')
             } else {
                 setIsLoading(false);
-                // User is signed out
                 dispatch(removeUser());
                 setAuthenticated(false);
             }
@@ -37,13 +35,17 @@ const ProtectedRoute = () => {
         return () => unsubscribe();
     }, [auth]);
 
-    if (!isLoading && !authenticated) {
+    if (!isLoading && !authenticated && authProp) {
+        return <Navigate to="/auth" replace />;
+    }
+
+    if (!isLoading && authenticated && !authProp) {
         return <Navigate to="/" replace />;
     }
 
     return (
         <>
-            <Header /> <Outlet />{" "}
+            <Header /> <Outlet />
         </>
     );
 };

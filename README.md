@@ -36,6 +36,10 @@
 - Made a getVideoKey function to get the video key of youtube
 - Display the recommened video section
 - Seperated the route in router folder
+- Gpt search page
+- Multilanguage feature on search page
+- Used Movie recommendation API
+- Added Error Toaster
 
 # features
 - Login / signup

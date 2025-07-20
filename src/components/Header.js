@@ -1,8 +1,7 @@
-import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../utils/firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { LOGO, searchLanguages } from "../utils/constants";
 import { toggleGptSeachView } from "../store/gptSlice";
 import { changeLanguage } from "../store/appConfigSlice";
@@ -20,9 +19,15 @@ const Header = () => {
             });
     };
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const dispatch = useDispatch();
     const handleGptSearch = () => {
         dispatch(toggleGptSeachView())
+        if(location.pathname.includes('/watch')) {
+            navigate('/');
+        }
     }
 
 
@@ -43,11 +48,11 @@ const Header = () => {
                     </select>)
                     }
                    
-                    <button 
+                    <button
                         className="bg-purple-500 text-white px-4 py-2 mx-2 rounded-lg"
                         onClick={handleGptSearch}
                         > {showGptSearch ? "Home" : "Gpt Search"}
-                         </button>
+                    </button>
                     <p className="font-bold text-black text-2xl bg-white bg-opacity-20 px-4 py-2 rounded-lg mx-2">{user.displayName}</p>
                     <img src={user?.photoURL} alt="user-icon" width="45px" className="rounded-lg" />
                     <button onClick={handleSignOut} className="font-bold text-white bg-red-600 py-2 px-4 rounded-lg">

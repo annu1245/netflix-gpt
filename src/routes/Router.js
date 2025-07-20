@@ -7,25 +7,27 @@ import SecondaryContainer from '../components/SecondaryContainer';
 import PlayVideo from '../components/PlayVideo';
 import BrowserRoute from "./BrowserRoute";
 
-
-
 const router = createBrowserRouter([
     {
-        path: "/",
-        element: <Login />, // Header + nested routes
-        index: true,
-    },
-    {
-        element: <ProtectedRoute/>,
+        element: <ProtectedRoute auth={true}/>,
         children: [
             {
-                path: "browse",
-                element:<BrowserRoute/>
+                path: "/",
+                element:<BrowserRoute />
             },
             {
-                path: "watch",
+                path: "watch/:videoKey",
                 element: <PlayVideo />,
             },
+        ],
+    },
+    {
+        element: <ProtectedRoute auth={false} />,
+        children: [
+            {
+                path: "auth",
+                element: <Login />, // Header + nested routes
+            }
         ],
     },
 ]);
